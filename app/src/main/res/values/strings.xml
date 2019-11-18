@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SportApp</string>
+    <string name="str_btn_search">Search</string>
+    <string name="search_a_team">Search a Team</string>
+</resources>
