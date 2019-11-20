@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">SportApp</string>
+    <string name="app_name">Sports</string>
     <string name="str_btn_search">Search</string>
     <string name="search_a_team">Search a Team</string>
+    <string name="text_instagram">Instagram:</string>
+    <string name="text_about">About:</string>
+    <string name="text_facebook">Facebook:</string>
 </resources>

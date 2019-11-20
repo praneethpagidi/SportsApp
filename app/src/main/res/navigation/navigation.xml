@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="praneeth.com.sportapp.ui.fragments.SearchTeamFragment"
+        android:name="praneeth.com.sportsapp.ui.fragments.SearchTeamFragment"
         android:label="Search a Team"
         tools:layout="@layout/search_view">
         <action
@@ -17,8 +17,18 @@
 
     <fragment
         android:id="@+id/resultsFragment"
-        android:name="praneeth.com.sportapp.ui.fragments.ResultsFragment"
+        android:name="praneeth.com.sportsapp.ui.fragments.ResultsFragment"
         android:label="Players"
-        tools:layout="@layout/results_view"/>
+        tools:layout="@layout/results_view">
+        <action
+            android:id="@+id/action_resultsFragment_to_playerDetailsFragment"
+            app:destination="@id/playerDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/playerDetailsFragment"
+        android:name="praneeth.com.sportsapp.ui.fragments.PlayerDetailsFragment"
+        android:label="Details"
+        tools:layout="@layout/player_details_view"/>
 
 </navigation>
