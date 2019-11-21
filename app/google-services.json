@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "179705500869",
+    "firebase_url": "https://mytoyproject-28e0e.firebaseio.com",
+    "project_id": "mytoyproject-28e0e",
+    "storage_bucket": "mytoyproject-28e0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:179705500869:android:3ca63c2694b5002d5cccac",
+        "android_client_info": {
+          "package_name": "praneeth.com.sportsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "179705500869-0u258s8bblvh59k25pf4qbbn70pl9gba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATva8aPON5sN2EXbpt3aDgQutwfUMNIas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "179705500869-0u258s8bblvh59k25pf4qbbn70pl9gba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
