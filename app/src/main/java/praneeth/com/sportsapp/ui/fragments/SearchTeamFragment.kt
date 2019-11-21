@@ -13,6 +13,9 @@ import kotlinx.android.synthetic.main.search_view.*
 import org.jetbrains.anko.support.v4.find
 import org.jetbrains.anko.support.v4.toast
 import praneeth.com.sportsapp.R
+import praneeth.com.sportsapp.domain.service.RetrofitProvider
+import praneeth.com.sportsapp.domain.service.RetrofitService
+import praneeth.com.sportsapp.domain.service.RetrofitServiceRepositoryImpl
 import praneeth.com.sportsapp.domain.viewModels.SearchViewModel
 
 /**
@@ -24,9 +27,11 @@ class SearchTeamFragment: BaseFragment(), View.OnClickListener {
     override val screenTitle = "Search a Team"
 
     private lateinit var mProgressbar: ProgressDialog
+    private val mService: RetrofitService by lazy { RetrofitProvider.create() }
+
     private val viewModel by lazy {
         obtainViewModel {
-            SearchViewModel()
+            SearchViewModel(RetrofitServiceRepositoryImpl(mService))
         }
     }
 

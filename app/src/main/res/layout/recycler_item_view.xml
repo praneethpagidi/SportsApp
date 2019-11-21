@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="10dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginEnd="10dp"
-    android:background="#C8D7C5">
+    android:layout_marginStart="@dimen/layout_margin_md"
+    android:layout_marginTop="@dimen/layout_margin_md"
+    android:layout_marginEnd="@dimen/layout_margin_md"
+    android:background="@color/color_extreme_light_green">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/image_player"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="90dp"
+        android:scaleType="fitXY"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,10 +21,10 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_name"
         style="@style/textViewCommonStyle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/layout_margin_xlg"
         app:layout_constraintRight_toLeftOf="@+id/image_player"
         app:layout_constraintStart_toEndOf="@id/image_player"
         app:layout_constraintTop_toTopOf="parent"
@@ -32,10 +33,10 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_player_name"
         style="@style/textViewBoldItalicStyle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin_sm"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/layout_margin_xlg"
         app:layout_constraintRight_toLeftOf="@+id/text_name"
         app:layout_constraintStart_toEndOf="@id/text_name"
         app:layout_constraintTop_toTopOf="parent"
@@ -44,7 +45,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_date"
         style="@style/textViewCommonStyle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin_lg"
         android:layout_marginTop="@dimen/layout_margin_sm"
@@ -56,7 +57,7 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_date_signed"
         style="@style/textViewBoldItalicStyle"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/layout_margin_sm"
         android:layout_marginTop="@dimen/layout_margin_sm"
@@ -64,29 +65,5 @@
         app:layout_constraintStart_toEndOf="@id/text_date"
         app:layout_constraintTop_toBottomOf="@id/text_player_name"
         tools:text="2012-07-01" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_jersey"
-        style="@style/textViewCommonStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_sm"
-        app:layout_constraintRight_toLeftOf="@+id/image_player"
-        app:layout_constraintStart_toEndOf="@id/image_player"
-        app:layout_constraintTop_toBottomOf="@id/text_date"
-        tools:text="Jersey Number:" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_jersey_number"
-        style="@style/textViewBoldItalicStyle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_sm"
-        android:layout_marginTop="@dimen/layout_margin_sm"
-        app:layout_constraintRight_toLeftOf="@+id/text_jersey"
-        app:layout_constraintStart_toEndOf="@id/text_jersey"
-        app:layout_constraintTop_toBottomOf="@id/text_date"
-        tools:text="01" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

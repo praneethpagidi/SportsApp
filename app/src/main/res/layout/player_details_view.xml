@@ -1,78 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/customLightGreen">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_about"
-        style="@style/textViewBoldItalicStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_lg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="About:" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_description"
-        style="@style/textViewCommonStyle"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_xlg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_about" />
+        android:paddingBottom="50dp">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_link1"
-        style="@style/textViewBoldItalicStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_lg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_description"
-        tools:text="Facebook:" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_about"
+            style="@style/textViewBoldItalicStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="About:" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_facebook"
-        style="@style/textViewCommonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_xlg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_link1" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_description"
+            style="@style/textViewCommonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_xlg"
+            android:layout_marginBottom="@dimen/layout_margin_xlg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_about" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_link2"
-        style="@style/textViewBoldItalicStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_lg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_facebook"
-        tools:text="Instagram:" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_link1"
+            style="@style/textViewBoldItalicStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_description"
+            tools:text="Facebook:" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_instagram"
-        style="@style/textViewCommonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/layout_margin_lg"
-        android:layout_marginTop="@dimen/layout_margin_md"
-        android:layout_marginEnd="@dimen/layout_margin_lg"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_link2" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_facebook"
+            style="@style/textViewCommonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_xlg"
+            android:autoLink="web"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_link1" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_link2"
+            style="@style/textViewBoldItalicStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_lg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_facebook"
+            tools:text="Instagram:" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_instagram"
+            style="@style/textViewCommonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_lg"
+            android:layout_marginTop="@dimen/layout_margin_md"
+            android:layout_marginEnd="@dimen/layout_margin_lg"
+            android:autoLink="web"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_link2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

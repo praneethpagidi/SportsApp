@@ -38,8 +38,6 @@ class PlayersAdapter(private val players: List<Player>, private val listener: On
         private val playerNameDescription = itemView.find<AppCompatTextView>(R.id.text_player_name)
         private val playerDateSigned = itemView.find<AppCompatTextView>(R.id.text_date)
         private val playerDateSignedDescription = itemView.find<AppCompatTextView>(R.id.text_date_signed)
-        private val playerJerseyNumber = itemView.find<AppCompatTextView>(R.id.text_jersey)
-        private val playerJerseyNumberDescription = itemView.find<AppCompatTextView>(R.id.text_jersey_number)
 
         fun bindData(player: Player, listener: OnItemClickListener) {
             with(player) {
@@ -47,8 +45,6 @@ class PlayersAdapter(private val players: List<Player>, private val listener: On
                 playerNameDescription.bindOrHideWhenNull(strPlayer)
                 playerDateSigned.text = if (dateSigned.isNullOrBlank()) "" else "Date Signed:"
                 playerDateSignedDescription.bindOrHideWhenNull(dateSigned)
-                playerJerseyNumber.text = if (strNumber.isNullOrBlank()) "" else "Jersey Number:"
-                playerJerseyNumberDescription.bindOrHideWhenNull(strNumber)
                 playerImage.run {
                     Glide.with(this.context)
                         .load(strThumb)
