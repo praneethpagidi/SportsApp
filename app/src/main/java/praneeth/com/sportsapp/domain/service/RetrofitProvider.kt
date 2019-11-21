@@ -1,5 +1,6 @@
 package praneeth.com.sportsapp.domain.service
 
+import praneeth.com.sportsapp.BuildConfig
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -11,9 +12,9 @@ const val BASE_URL = "https://www.thesportsdb.com/api/v1/json/1/"
 class RetrofitProvider {
     companion object {
         fun create(): RetrofitService {
-            //uncomment the below line to check the logs.
-//            OkHttpClient.config(true)
-
+            if(BuildConfig.DEBUG) {
+                OkHttpClient.config(true)
+            }
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.instance)
