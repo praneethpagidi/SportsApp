@@ -19,15 +19,9 @@ class ResultsViewModel(playersResponse: PlayersResponse?): ViewModel() {
     }
 
     fun getPlayers(playersFromResponse: List<Player?>?): List<Player> {
-        val playersList = ArrayList<Player>()
         if (playersFromResponse.isNullOrEmpty())
-            return playersList
+            return emptyList()
 
-        for (player in playersFromResponse) {
-            if (player == null)
-                continue
-            playersList.add(player)
-        }
-        return playersList
+        return playersFromResponse.filterNotNull()
     }
 }

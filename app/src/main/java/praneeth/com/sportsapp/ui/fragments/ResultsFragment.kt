@@ -49,11 +49,6 @@ class ResultsFragment : BaseFragment() {
         })
     }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putParcelable("response", viewModel.response.value)
-    }
-
     private fun getResponse(): PlayersResponse? {
         return requireArguments().getParcelable(responseParcelKey)
     }
