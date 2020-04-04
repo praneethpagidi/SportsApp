@@ -34,7 +34,7 @@ object RetrofitCallbkHandler {
         errorCode: String?
     ): ServiceResult.Error {
         return ServiceResult.Error(
-            ServiceResult.ServiceException(errorCode, "Sorry, there was service issue, please try again")
+            ServiceResult.ServiceException(errorCode, "Sorry, there was a service issue, please try again")
         )
     }
 

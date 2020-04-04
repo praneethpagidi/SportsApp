@@ -12,9 +12,6 @@ const val BASE_URL = "https://www.thesportsdb.com/api/v1/json/1/"
 class RetrofitProvider {
     companion object {
         fun create(): RetrofitService {
-            if(BuildConfig.DEBUG) {
-                OkHttpClient.config(true)
-            }
             val retrofit = Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(OkHttpClient.instance)

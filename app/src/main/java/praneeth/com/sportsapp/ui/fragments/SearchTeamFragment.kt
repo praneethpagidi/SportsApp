@@ -13,10 +13,12 @@ import kotlinx.android.synthetic.main.search_view.*
 import org.jetbrains.anko.support.v4.find
 import org.jetbrains.anko.support.v4.toast
 import praneeth.com.sportsapp.R
+import praneeth.com.sportsapp.domain.dataModels.PlayersResponse
 import praneeth.com.sportsapp.domain.service.RetrofitProvider
 import praneeth.com.sportsapp.domain.service.RetrofitService
 import praneeth.com.sportsapp.domain.service.RetrofitServiceRepositoryImpl
 import praneeth.com.sportsapp.domain.viewModels.SearchViewModel
+import praneeth.com.sportsapp.util.SingleLiveDataEvent
 
 /**
  * Created by Praneeth on 2019-11-18.
@@ -35,17 +37,44 @@ class SearchTeamFragment: BaseFragment(), View.OnClickListener {
         }
     }
 
+    private val responseObserver = Observer<SingleLiveDataEvent<PlayersResponse>> { responseEvent ->
+        responseEvent?.getContentIfNotHandled()?.let {
+            mProgressbar.dismiss()
+            navigateToNextFragment(R.id.action_searchFragment_to_resultsFragment,"response" , it)
+        }
+    }
+
+    private val progressBarObserver = Observer<SingleLiveDataEvent<Boolean>> { progressDialogEvent ->
+        progressDialogEvent?.getContentIfNotHandled()?.let {
+            if (it) {
+                mProgressbar.dismiss()
+            }
+        }
+    }
+
+    private val toastStringObserver = Observer<SingleLiveDataEvent<String>> { toastStringEvent ->
+        toastStringEvent?.getContentIfNotHandled()?.let {
+            toast(it)
+        }
+    }
+
     private var keyWord: String = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViewComponents()
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.response.observe(viewLifecycleOwner, responseObserver)
+        viewModel.shouldDismissProgressDialog.observe(viewLifecycleOwner, progressBarObserver)
+        viewModel.toastString.observe(viewLifecycleOwner, toastStringObserver)
+
     }
 
     private fun initViewComponents() {
         find<TextInputEditText>(R.id.et_searchAWord).hint = getString(R.string.search_a_team)
-        find<TextInputEditText>(R.id.et_searchAWord).addTextChangedListener(textWatcher())
+        find<TextInputEditText>(R.id.et_searchAWord).addTextChangedListener(getTextWatcher())
         mProgressbar = ProgressDialog(requireActivity())
+        mProgressbar.setTitle("Searching...")
         find<MaterialButton>(R.id.btn_search).backgroundTintList = ContextCompat.getColorStateList(requireContext(), R.color.customDarkGreen)
         find<MaterialButton>(R.id.btn_search).setOnClickListener(this)
     }
@@ -57,34 +86,10 @@ class SearchTeamFragment: BaseFragment(), View.OnClickListener {
             return
         }
         showProgressDialog()
-        searchTeamAndAddObservers()
-    }
-
-    private fun searchTeamAndAddObservers() {
         viewModel.search(keyWord)
-
-        viewModel.response.observe(viewLifecycleOwner,
-            Observer { response ->
-                if (response != null) {
-                    mProgressbar.dismiss()
-                    navigateToNextFragment(R.id.action_searchFragment_to_resultsFragment,"response" , response)
-                }
-            })
-
-        viewModel.shouldDismissProgressDialog.observe(viewLifecycleOwner,
-            Observer { shouldDismissProgressDialog ->
-                if (shouldDismissProgressDialog) {
-                    mProgressbar.dismiss()
-                }
-            })
-
-        viewModel.toastString.observe(viewLifecycleOwner,
-            Observer {
-                toast(it)
-            })
     }
 
-    private fun textWatcher(): TextWatcher {
+    private fun getTextWatcher(): TextWatcher {
         return object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 //no op
