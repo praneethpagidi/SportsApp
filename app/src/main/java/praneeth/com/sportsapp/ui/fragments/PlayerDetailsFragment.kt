@@ -3,11 +3,13 @@ package praneeth.com.sportsapp.ui.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import org.jetbrains.anko.find
 import praneeth.com.sportsapp.R
 import praneeth.com.sportsapp.domain.dataModels.DetailsDataModel
-import praneeth.com.sportsapp.domain.viewModels.DetailsViewModel
+import praneeth.com.sportsapp.domain.viewModel.DetailsViewModel
+import praneeth.com.sportsapp.domain.viewModel.DetailsViewModelFactory
 import praneeth.com.sportsapp.util.bindOrHideWhenNull
 import praneeth.com.sportsapp.util.show
 
@@ -18,11 +20,7 @@ class PlayerDetailsFragment: BaseFragment() {
     override val layoutResourceId: Int = R.layout.player_details_view
     override val screenTitle: String = "Player Details"
 
-    private val viewModel by lazy {
-        obtainViewModel {
-            DetailsViewModel(getDetailsDataModel())
-        }
-    }
+    private val viewModel by viewModels<DetailsViewModel> { DetailsViewModelFactory(getDetailsDataModel()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

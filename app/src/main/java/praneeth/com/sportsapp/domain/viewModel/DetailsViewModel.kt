@@ -1,4 +1,4 @@
-package praneeth.com.sportsapp.domain.viewModels
+package praneeth.com.sportsapp.domain.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

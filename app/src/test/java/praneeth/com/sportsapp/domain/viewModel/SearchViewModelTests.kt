@@ -1,4 +1,4 @@
-package praneeth.com.sportsapp.domain.viewModels
+package praneeth.com.sportsapp.domain.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.*
@@ -8,7 +8,6 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
-import org.hamcrest.CoreMatchers
 import org.junit.*
 import org.mockito.ArgumentMatchers.anyString
 import praneeth.com.sportsapp.domain.dataModels.Player

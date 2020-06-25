@@ -2,6 +2,7 @@ package praneeth.com.sportsapp.ui.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +11,8 @@ import praneeth.com.sportsapp.R
 import praneeth.com.sportsapp.domain.dataModels.DetailsDataModel
 import praneeth.com.sportsapp.domain.dataModels.Player
 import praneeth.com.sportsapp.domain.dataModels.PlayersResponse
-import praneeth.com.sportsapp.domain.viewModels.ResultsViewModel
+import praneeth.com.sportsapp.domain.viewModel.ResultsViewModel
+import praneeth.com.sportsapp.domain.viewModel.ResultsViewModelFactory
 import praneeth.com.sportsapp.ui.adapters.PlayersAdapter
 
 /**
@@ -22,11 +24,7 @@ class ResultsFragment : BaseFragment() {
     override val layoutResourceId = R.layout.results_view
     override val screenTitle = "Players"
 
-    private val viewModel by lazy {
-        obtainViewModel {
-            ResultsViewModel(getResponse())
-        }
-    }
+    private val viewModel by viewModels<ResultsViewModel> { ResultsViewModelFactory(getResponse()) }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

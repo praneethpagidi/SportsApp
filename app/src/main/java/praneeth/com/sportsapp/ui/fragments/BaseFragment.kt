@@ -41,19 +41,6 @@ abstract class BaseFragment: Fragment() {
     }
 
     /**
-     * Fragment extension function for obtaining an [instance] of the view model through ViewModelProviders
-     */
-    @Suppress("UNCHECKED_CAST")
-    inline fun <reified V : ViewModel> Fragment.obtainViewModel(crossinline instance: () -> V): V {
-        val factory = object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return instance() as T
-            }
-        }
-        return ViewModelProviders.of(this, factory).get(V::class.java)
-    }
-
-    /**
      * Hide the soft keyboard
      */
     protected fun hideKeyboard() {

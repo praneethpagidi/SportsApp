@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -17,7 +18,8 @@ import praneeth.com.sportsapp.domain.dataModels.PlayersResponse
 import praneeth.com.sportsapp.domain.service.RetrofitProvider
 import praneeth.com.sportsapp.domain.service.RetrofitService
 import praneeth.com.sportsapp.domain.service.RetrofitServiceRepositoryImpl
-import praneeth.com.sportsapp.domain.viewModels.SearchViewModel
+import praneeth.com.sportsapp.domain.viewModel.SearchViewModel
+import praneeth.com.sportsapp.domain.viewModel.SearchViewModelFactory
 import praneeth.com.sportsapp.util.SingleLiveDataEvent
 
 /**
@@ -31,10 +33,8 @@ class SearchTeamFragment: BaseFragment(), View.OnClickListener {
     private lateinit var mProgressbar: ProgressDialog
     private val mService: RetrofitService by lazy { RetrofitProvider.create() }
 
-    private val viewModel by lazy {
-        obtainViewModel {
-            SearchViewModel(RetrofitServiceRepositoryImpl(mService))
-        }
+    private val viewModel by viewModels<SearchViewModel> {
+        SearchViewModelFactory(RetrofitServiceRepositoryImpl(mService))
     }
 
     private val responseObserver = Observer<SingleLiveDataEvent<PlayersResponse>> { responseEvent ->
